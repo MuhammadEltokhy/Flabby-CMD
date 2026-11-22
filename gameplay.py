@@ -19,7 +19,7 @@ class Pipe:
     amp: float
     t: float = 0.0
     scored: bool = False
-    def row(self)->tuple[int, int]:
+    def rows(self)->tuple[int, int]:
         centre=self.base+self.amp*math.sin(self.t)
         top=round(centre-self.gap/2)
         return top,top+self.gap-1
@@ -139,7 +139,7 @@ class Game:
         for p in self.pipes:
             px=round(p.x)
             if px<self.bird_x+BIRD and px+PIPE>self.bird_x:
-                top, bottom=p.row()
+                top, bottom=p.rows()
                 if row<top or row>bottom:
                     return True
         return False
