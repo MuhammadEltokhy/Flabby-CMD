@@ -65,6 +65,8 @@ class View(Widget):
                             grid[r][x]=("█", CAP)
                         else:
                             grid[r][x]=("█", EDGES if edge else PIPES)
+        g.flood.draw(grid, w, h)
+        g.fire.draw(grid, w, h)
         shift=int(g.distance)
         for x in range(w):
             grid[h - 1][x]=("▚" if (x+shift)%4 <2 else "▞", GROUND)
@@ -157,4 +159,5 @@ class main(App):
 
 if __name__ == "__main__":
     main().run()
+    
     
